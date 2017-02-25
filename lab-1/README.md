@@ -40,6 +40,11 @@ kubectl config use-context trainingcontext
 kubectl cluster-info
 ```
 
+* Check Kubernetes versions:
+```
+kubectl version
+```
+
 * List cluster nodes:
 ```
 kubectl get nodes
