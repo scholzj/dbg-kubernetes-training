@@ -1,5 +1,9 @@
 # Lab 1: Accessing Kubernetes cluster
 
+In this lab, we will install the `kubectl` utility, configure it to access the Kubernetes cluster and try some basic operations.
+
+## Kubectl installation
+
 * Download `kubectl` utility for [Windows](https://storage.googleapis.com/kubernetes-release/release/v1.5.3/bin/windows/amd64/kubectl.exe), [Linux](https://storage.googleapis.com/kubernetes-release/release/v1.5.3/bin/linux/amd64/kubectl) or [MacOs](https://storage.googleapis.com/kubernetes-release/release/v1.5.3/bin/darwin/amd64/kubectl)
 * Add it to the path
 * On Linux and MacOS, make it executable
@@ -61,7 +65,7 @@ kubectl proxy
 
 * Checkout the Kubernetes Dashboard
 
-## Use proxy and access the dashboard
+## Use proxy and explore the APIs
 
 * Start the proxy to the Kubernetes cluster
 ```
