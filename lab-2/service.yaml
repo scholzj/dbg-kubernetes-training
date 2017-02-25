@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: ghost
+    project: microblogging
+  name: ghost-service
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 2368
+  selector:
+    app: ghost
+    project: microblogging
+  type: LoadBalancer

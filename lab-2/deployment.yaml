@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: ghost-deployment
+  labels:
+    app: ghost
+    project: microblogging
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ghost
+        project: microblogging
+    spec:
+      containers:
+      - name: ghost
+        image: ghost:latest
+        ports:
+        - containerPort: 2368
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 200m
+            memory: 512Mi
