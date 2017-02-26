@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-config
+  labels:
+    app: mysql
+    layer: db
+    project: wordpress
+data:
+  database.name: "wordpressdb"
+  database.user: "wordpress"

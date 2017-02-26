@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: drupal-config
+  labels:
+    app: drupal
+    layer: backend
+    project: wordpress
+data:
+  database.name: "wordpressdb"
+  database.user: "wordpress"

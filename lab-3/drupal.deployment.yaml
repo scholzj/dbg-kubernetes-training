@@ -1,0 +1,45 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: drupal
+  labels:
+    app: drupal
+    layer: backend
+    project: wordpress
+spec:
+  template:
+    metadata:
+      labels:
+        app: drupal
+        layer: backend
+        project: wordpress
+    spec:
+      containers:
+      - image: drupal:8.2.6
+        name: drupal
+        env:
+        - name: MYSQL_DATABASE
+          valueFrom:
+            configMapKeyRef:
+              name: drupal-config
+              key: database.name
+        - name: MYSQL_USER
+          valueFrom:
+            configMapKeyRef:
+              name: drupal-config
+              key: database.user
+        - name: MYSQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: drupal-secret
+              key: password.txt
+        ports:
+        - containerPort: 80
+          name: http
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 200m
+            memory: 512Mi
