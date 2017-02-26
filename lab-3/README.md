@@ -54,16 +54,18 @@ kubectl --namespace <NAMESPACE> create -f mysql.service.yaml
 
 ## Deploy Etherpad
 
-* Check the `etherpad.config.yaml` file which describes the configuration map for the Drupal CMS
+* Check the `etherpad.config.yaml` file which describes the configuration map for the Etherpad
 
 * Create the config map in Kubernetes cluster using using `kubectl`:
 ```
 kubectl --namespace <NAMESPACE> create -f etherpad.configmap.yaml
 ```
 
+* Enter the password for the Etherpad admin account in `passwords/etherpad_password.txt`. Make sure the password files don't contain any empty lines on the beginning or the end of the file.
+
 * Generate a secret using the password files and `kubectl`. This uses the same password file as used to MySQL:
 ```
-kubectl --namespace <NAMESPACE> create secret generic etherpad-secret --from-file=./passwords/password.txt
+kubectl --namespace <NAMESPACE> create secret generic etherpad-secret --from-file=./passwords/etherpad_password.txt --from-file=./passwords/password.txt
 ```
 
 * Label the created secret with labels app=mysql, layer=db and project=etherpad:
@@ -75,7 +77,7 @@ kubectl --namespace <NAMESPACE> label secret etherpad-secret app=etherpad layer=
 
 * Check the file `etherpad.deployment.yaml` which contains the Etherpad deployment. The different environment variables which are supported by the Ethepad image can be found on [Docker Hub](https://hub.docker.com/r/tvelocity/etherpad-lite/).
 
-* Deploy Drupal using `kubectl`:
+* Deploy Etherpad using `kubectl`:
 ```
 kubectl --namespace <NAMESPACE> create -f etherpad.deployment.yaml
 ```

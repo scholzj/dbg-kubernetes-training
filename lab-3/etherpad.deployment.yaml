@@ -19,17 +19,35 @@ spec:
         name: etherpad
         env:
         - name: ETHERPAD_PORT
-          value: "80"
+          valueFrom:
+            configMapKeyRef:
+              name: etherpad-config
+              key: port
         - name: ETHERPAD_SESSION_KEY
-          value: admin
+          valueFrom:
+            configMapKeyRef:
+              name: etherpad-config
+              key: session_key
         - name: ETHERPAD_ADMIN_USER
-          value: admin
+          valueFrom:
+            configMapKeyRef:
+              name: etherpad-config
+              key: admin_user
         - name: ETHERPAD_ADMIN_PASSWORD
-          value: "123456"
+          valueFrom:
+            secretKeyRef:
+              name: etherpad-secret
+              key: etherpad_password.txt
         - name: ETHERPAD_DB_HOST
-          value: mysql
+          valueFrom:
+            configMapKeyRef:
+              name: etherpad-config
+              key: database.host
         - name: ETHERPAD_DB_PORT
-          value: "3306"
+          valueFrom:
+            configMapKeyRef:
+              name: etherpad-config
+              key: database.port
         - name: ETHERPAD_DB_NAME
           valueFrom:
             configMapKeyRef:

@@ -7,5 +7,10 @@ metadata:
     layer: backend
     project: etherpad
 data:
+  port: "80"
+  session_key: "55ED1519-7079-4E08-9739-0B069BF1D8B2"
+  admin_user: "admin"
+  database.host: "mysql"
+  database.port: "3306"
   database.name: "etherpaddb"
   database.user: "etherpad"
