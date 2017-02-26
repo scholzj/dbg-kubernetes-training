@@ -1,3 +1,3 @@
-# Deutsche Boerse Kubernetes training
+# Deutsche Börse "Kubernetes for Beginners" training
 
-This repository contains the materials for my "Kubernetes for Beginners" training held for my colleagues in Deutsche Boerse.
+This repository contains the materials for my "Kubernetes for Beginners" training held for my colleagues in Deutsche Börse.
