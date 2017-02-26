@@ -5,7 +5,7 @@ metadata:
   labels:
     app: mysql
     layer: db
-    project: wordpress
+    project: etherpad
 data:
-  database.name: "wordpressdb"
-  database.user: "wordpress"
+  database.name: "etherpaddb"
+  database.user: "etherpad"

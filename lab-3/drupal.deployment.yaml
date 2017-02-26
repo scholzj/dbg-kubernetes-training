@@ -1,37 +1,49 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: drupal
+  name: etherpad
   labels:
-    app: drupal
+    app: etherpad
     layer: backend
-    project: wordpress
+    project: etherpad
 spec:
   template:
     metadata:
       labels:
-        app: drupal
+        app: etherpad
         layer: backend
-        project: wordpress
+        project: etherpad
     spec:
       containers:
-      - image: drupal:8.2.6
-        name: drupal
+      - image: tvelocity/etherpad-lite:latest
+        name: etherpad
         env:
-        - name: MYSQL_DATABASE
+        - name: ETHERPAD_PORT
+          value: "80"
+        - name: ETHERPAD_SESSION_KEY
+          value: admin
+        - name: ETHERPAD_ADMIN_USER
+          value: admin
+        - name: ETHERPAD_ADMIN_PASSWORD
+          value: "123456"
+        - name: ETHERPAD_DB_HOST
+          value: mysql
+        - name: ETHERPAD_DB_PORT
+          value: "3306"
+        - name: ETHERPAD_DB_NAME
           valueFrom:
             configMapKeyRef:
-              name: drupal-config
+              name: etherpad-config
               key: database.name
-        - name: MYSQL_USER
+        - name: ETHERPAD_DB_USER
           valueFrom:
             configMapKeyRef:
-              name: drupal-config
+              name: etherpad-config
               key: database.user
-        - name: MYSQL_PASSWORD
+        - name: ETHERPAD_DB_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: drupal-secret
+              name: etherpad-secret
               key: password.txt
         ports:
         - containerPort: 80

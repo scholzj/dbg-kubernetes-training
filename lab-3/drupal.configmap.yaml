@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: drupal-config
+  name: etherpad-config
   labels:
-    app: drupal
+    app: etherpad
     layer: backend
-    project: wordpress
+    project: etherpad
 data:
-  database.name: "wordpressdb"
-  database.user: "wordpress"
+  database.name: "etherpaddb"
+  database.user: "etherpad"

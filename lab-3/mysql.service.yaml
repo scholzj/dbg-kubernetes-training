@@ -5,12 +5,12 @@ metadata:
   labels:
     app: mysql
     layer: db
-    project: wordpress
+    project: etherpad
 spec:
   ports:
     - port: 3306
   selector:
     app: mysql
     layer: db
-    project: wordpress
+    project: etherpad
   type: ClusterIP

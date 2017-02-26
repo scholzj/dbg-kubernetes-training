@@ -5,7 +5,7 @@ metadata:
   labels:
     app: mysql
     layer: db
-    project: wordpress
+    project: etherpad
 spec:
   strategy:
     type: Recreate
@@ -14,7 +14,7 @@ spec:
       labels:
         app: mysql
         layer: db
-        project: wordpress
+        project: etherpad
     spec:
       containers:
       - image: mysql:5.6
@@ -46,7 +46,7 @@ spec:
         resources:
           requests:
             cpu: 100m
-            memory: 512Mi
+            memory: 512
           limits:
             cpu: 200m
             memory: 1Gi
