@@ -1,0 +1,27 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: pi
+  labels:
+    app: pi
+    project: k8straining
+spec:
+  template:
+    metadata:
+      name: pi
+      labels:
+        app: pi
+        project: k8straining
+    spec:
+      containers:
+      - name: pi
+        image: perl
+        command: ["perl",  "-Mbignum=bpi", "-wle", "print bpi(2000)"]
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 1
+            memory: 1Gi
+      restartPolicy: Never
