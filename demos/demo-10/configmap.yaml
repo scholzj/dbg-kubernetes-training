@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: yaml-based
+  labels:
+    app: kuard
+    project: k8straining
+data:
+  some.parameter: "some-value"
+  some.parameter2: "some-value2"

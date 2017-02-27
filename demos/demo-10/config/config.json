@@ -1,0 +1,35 @@
+{
+  "http": {
+    "port": 8080,
+    "ssl": {
+      "enable": true,
+      "keystore": "web.keystore",
+      "keystorePassword": "123456",
+      "truststore": "web.truststore",
+      "truststorePassword": "123456",
+      "requireTLSClientAuth": false
+    },
+    "CORS": {
+      "enable" : true,
+      "origin" : "*"
+    },
+    "CSRF": {
+      "enable" : false,
+      "secret" : "DAVe-CSRF-Secret"
+    },
+    "auth": {
+      "enable": true,
+      "dbName": "DAVe",
+      "connectionUrl": "mongodb://localhost:27017",
+      "salt": "DAVe",
+      "checkUserAgainstCertificate": false,
+      "jwtKeystorePath": "jwt-keystore.jceks",
+      "jwtKeystorePassword": "secret"
+    },
+    "compression": true
+  },
+  "mongodb": {
+    "dbName": "DAVe",
+    "connectionUrl": "mongodb://localhost:27017"
+  }
+}

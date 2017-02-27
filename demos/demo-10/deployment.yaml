@@ -1,0 +1,45 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: kuard
+  labels:
+    app: kuard
+    project: k8straining
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: kuard
+        project: k8straining
+    spec:
+      containers:
+      - name: kuard
+        image: gcr.io/kuar-demo/kuard-amd64:1
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 200m
+            memory: 512Mi
+        env:
+        - name: CONFIG_PARAMETER_1
+          valueFrom:
+            configMapKeyRef:
+              name: yaml-based
+              key: some.parameter
+        - name: CONFIG_PARAMETER_2
+          valueFrom:
+            configMapKeyRef:
+              name: yaml-based
+              key: some.parameter2
+        volumeMounts:
+        - name: config-volume
+          mountPath: /etc/config
+      volumes:
+      - name: config-volume
+        configMap:
+          name: file-based
