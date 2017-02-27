@@ -1,0 +1,15 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: my-persistent-volume
+  annotations:
+    volume.beta.kubernetes.io/storage-class: "ssd"
+  labels:
+    app: kuard
+    project: k8straining
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
