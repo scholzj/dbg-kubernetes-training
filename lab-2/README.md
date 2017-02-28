@@ -6,7 +6,7 @@ In this lab, we will deploy our first application and expose it using Amazon AWS
 
 * Create your own namespace
 ```
-kubectl create namespace $namespace
+kubectl create namespace <NAMESPACE>
 ```
 for example:
 ```
@@ -15,6 +15,10 @@ kubectl create namespace schojak
 Save namespace into environmental variable, as we are going to use it quite often. This way we make sure, you are always working in your own, isolated namespace. For example
 ```
 export namespace=schojak
+```
+Check, if the variable is set correctly:
+```
+echo @namespace
 ```
 
 * List the deployments, pods:
