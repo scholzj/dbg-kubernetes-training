@@ -78,6 +78,6 @@ kubectl proxy
 ```
 
 * Use your browser or `curl` and explore the APIs. Try for example following URLs:
-  * `http://127.0.0.1:8001/healthz`
-  * `http://127.0.0.1:8001/api/v1`
-  * `http://127.0.0.1:8001/apis`
+  * [http://127.0.0.1:8001/healthz](http://127.0.0.1:8001/healthz)
+  * http://127.0.0.1:8001/api/v1
+  * http://127.0.0.1:8001/apis
