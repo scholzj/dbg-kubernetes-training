@@ -52,7 +52,7 @@ kubectl --namespace <NAMESPACE> get pods -l project=macroblogging
 kubectl --namespace <NAMESPACE> port-forward <POD_NAME> 5000:2368
 ```
 
-* Open the address `http://localhost:5000` in your browser
+* Open the address http://localhost:5000 in your browser
 
 ## Expose your application
 
