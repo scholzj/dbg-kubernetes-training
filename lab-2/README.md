@@ -6,17 +6,21 @@ In this lab, we will deploy our first application and expose it using Amazon AWS
 
 * Create your own namespace
 ```
-kubectl create namespace <NAMESPACE>
+kubectl create namespace $namespace
 ```
 for example:
 ```
 kubectl create namespace schojak
 ```
+Save namespace into environmental variable, as we are going to use it quite often. This way we make sure, you are always working in your own, isolated namespace. For example
+```
+export namespace=schojak
+```
 
 * List the deployments, pods:
 ```
-kubectl --namespace <NAMESPACE> get deployments
-kubectl --namespace <NAMESPACE> get pods
+kubectl --namespace $namespace get deployments
+kubectl --namespace $namespace get pods
 ```
 
 * List all namespaces in the cluster
@@ -30,26 +34,26 @@ kubectl get namespaces
 
 * Deploy Ghost using `kubectl`:
 ```
-kubectl --namespace <NAMESPACE> create -f deployment.yaml
+kubectl --namespace $namespace create -f deployment.yaml
 ```
 
 * Check the deployment and the pods
 ```
-kubectl --namespace <NAMESPACE> get deployments
-kubectl --namespace <NAMESPACE> describe deployment ghost-deployment
-kubectl --namespace <NAMESPACE> get pods
-kubectl --namespace <NAMESPACE> describe pod <POD_NAME>
+kubectl --namespace $namespace get deployments
+kubectl --namespace $namespace describe deployment ghost-deployment
+kubectl --namespace $namespace get pods
+kubectl --namespace $namespace describe pod <POD_NAME>
 ```
 
 * Use lables to filter through the running pods:
 ```
-kubectl --namespace <NAMESPACE> get pods -l project=microblogging
-kubectl --namespace <NAMESPACE> get pods -l project=macroblogging
+kubectl --namespace $namespace get pods -l project=microblogging
+kubectl --namespace $namespace get pods -l project=macroblogging
 ```
 
 * Use `kubectl` to expose the port of your application to your local computer
 ```
-kubectl --namespace <NAMESPACE> port-forward <POD_NAME> 5000:2368
+kubectl --namespace $namespace port-forward <POD_NAME> 5000:2368
 ```
 
 * Open the address http://localhost:5000 in your browser
@@ -60,17 +64,17 @@ kubectl --namespace <NAMESPACE> port-forward <POD_NAME> 5000:2368
 
 * Create service using `kubectl`:
 ```
-kubectl --namespace <NAMESPACE> create -f service.yaml
+kubectl --namespace $namespace create -f service.yaml
 ```
 
 * Check the service
 ```
-kubectl --namespace <NAMESPACE> get service
+kubectl --namespace $namespace get service
 ```
 
 * Check the service description to find out the hostname of your application
 ```
-kubectl --namespace <NAMESPACE> describe service ghost-service
+kubectl --namespace $namespace describe service ghost-service
 ```
 
 * Open the address from your browser (the DNS propagation might take some time)
@@ -79,10 +83,10 @@ kubectl --namespace <NAMESPACE> describe service ghost-service
 
 * To check the logs of the application, you can either go to the Kubernetes Dashboard or `kubectl`:
 ```
-kubectl --namespace <NAMESPACE> logs <POD_NAME>
+kubectl --namespace $namespace logs <POD_NAME>
 ```
 
 * You can also connect into the running container using `kubectl`:
 ```
-kubectl --namespace <NAMESPACE> exec -ti <POD_NAME> bash
+kubectl --namespace $namespace exec -ti <POD_NAME> bash
 ```
