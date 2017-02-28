@@ -66,7 +66,7 @@ kubectl describe node ip-172-35-106-33.eu-west-1.compute.internal
 kubectl proxy
 ```
 
-* Open browser and go to `http://127.0.0.1:8001/ui`
+* Open browser and go to http://127.0.0.1:8001/ui
 
 * Checkout the Kubernetes Dashboard
 
@@ -78,6 +78,6 @@ kubectl proxy
 ```
 
 * Use your browser or `curl` and explore the APIs. Try for example following URLs:
-  * [http://127.0.0.1:8001/healthz](http://127.0.0.1:8001/healthz)
+  * http://127.0.0.1:8001/healthz
   * http://127.0.0.1:8001/api/v1
   * http://127.0.0.1:8001/apis
