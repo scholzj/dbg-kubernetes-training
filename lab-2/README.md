@@ -18,7 +18,7 @@ export namespace=schojak
 ```
 Check, if the variable is set correctly:
 ```
-echo @namespace
+echo $namespace
 ```
 
 * List the deployments, pods:
