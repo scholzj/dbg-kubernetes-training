@@ -26,6 +26,8 @@ spec:
             cpu: 200m
             memory: 512Mi
         env:
+        - name : CONFIG_PARAMETER
+          value: "MyOwnEnvironmnetVariable"
         - name: CONFIG_PARAMETER_1
           valueFrom:
             configMapKeyRef:
