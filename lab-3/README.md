@@ -9,7 +9,7 @@ echo $namespace
 
 ## Deploy MySQL database
 
-* Check the `mysql.config.yaml` file which describes the configuration map for the MySQL database
+* Check the `mysql.configmap.yaml` file which describes the configuration map for the MySQL database
 
 * Create the config map in Kubernetes cluster using using `kubectl`:
 ```
